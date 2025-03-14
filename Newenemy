@@ -1,0 +1,67 @@
+sing System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Windows.Speech;
+
+public class Newenemy : MonoBehaviour
+{
+    public int Health;
+    public float Speed;
+    public GameObject Player;
+    private bool Hit = false;
+    public bool Moving = true;
+    public Transform Enemyattackpos;
+    public float Attackrange;
+    private bool Isfacingright;
+    public bool Following = false;
+    public float staticSpeed;
+
+
+    void Start()
+    {
+        staticSpeed = Speed;
+        Moving = true;
+    }
+
+    
+    void Update()
+    {
+       if(Moving == true)
+        {
+            transform.Translate(Vector2.left * Speed * Time.deltaTime);
+        }
+       if (Following == true)
+        {
+            if(transform.position.x > Player.transform.position.x)
+            {
+                transform.Translate(Vector2.left * staticSpeed * Time.deltaTime);
+            }
+
+            else
+            {
+                transform.Translate(Vector2.left * -staticSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "wall")
+        {
+            Speed = -Speed;
+            Isfacingright = !Isfacingright;
+        }
+    }
+    public void Detection()
+    {
+        Following = true;
+        Moving = false;
+    }
+    public void Notdetected()
+    {
+        Following = false;
+        Moving = true;
+    }
+
+}
