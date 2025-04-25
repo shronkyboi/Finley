@@ -1,2 +1,2 @@
-I am a aspiring coder. 
-I have made these for a project I am doing in college
+I am a aspiring coder. I have made these for a project I am doing in college. My project is too make a game with many gameplay elements. I chose to make scripts like this because I think it will best represent my skills without being beyond my range of skill
+I plan on working as a games designer coding game mechanics into the game, for companys such as new blood which is a indie company or vlave which is a popular games company that has made games such as portal, half life and team fortress 2.
